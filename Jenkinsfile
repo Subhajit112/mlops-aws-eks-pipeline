@@ -7,7 +7,7 @@ pipeline {
   stages {
      stage('Checkout') {
       steps {
-        git 'https://github.com/Subhajit112/mlops-aws-eks-pipeline.git'
+        git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/Subhajit112/mlops-aws-eks-pipeline.git'
       }
     }
     stage('Build') {
