@@ -58,7 +58,7 @@ This project demonstrates an end-to-end MLOps pipeline that deploys a machine le
 - **Return Prediction to Client:**
 ```json
 {
-  "prediction": ["setosa"]
+  "prediction": ["Diabetic"]
 }
 ```
 
