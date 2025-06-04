@@ -18,6 +18,32 @@ This project demonstrates an end-to-end MLOps pipeline that deploys a machine le
 5. **Terraform** for provisioning AWS resources
 6. **Prometheus & Grafana** for monitoring
 
+### Architecture Diagram
+                 +------------------+
+                 |   Jenkins (CI)   |
+                 +--------+---------+
+                          |
+                          v
+                +---------+----------+
+                |  Docker Build/Push |
+                +---------+----------+
+                          |
+                          v
+              +-----------+-----------+
+              | Kubernetes (EKS)      |
+              | +-------------------+ |
+              | |  Flask Model API  | |
+              | +-------------------+ |
+              +-----------+-----------+
+                          |
+         +----------------+----------------+
+         |                                 |
++------------------+         +-------------------------+
+|  Prometheus      |         |  Grafana Dashboard      |
++------------------+         +-------------------------+
+
+
+
 ## API Usage
 
 - **Endpoint:** `/predict`
