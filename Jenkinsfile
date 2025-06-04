@@ -7,7 +7,7 @@ pipeline {
   stages {
      stage('Checkout') {
       steps {
-        git 'https://github.com/your-repo/ml-app'
+        git 'https://github.com/Subhajit112/mlops-aws-eks-pipeline.git'
       }
     }
     stage('Build') {
