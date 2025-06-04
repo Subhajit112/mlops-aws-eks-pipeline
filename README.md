@@ -41,7 +41,7 @@ This project demonstrates an end-to-end MLOps pipeline that deploys a machine le
          |                                 |  
          v                                 v
     +------------------+         +-------------------------+
-    | Prometheus      |          |  Grafana Dashboard      |
+    |   Prometheus     |         |    Grafana Dashboard    |
     +------------------+         +-------------------------+
 
 
