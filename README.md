@@ -19,6 +19,7 @@ This project demonstrates an end-to-end MLOps pipeline that deploys a machine le
 6. **Prometheus & Grafana** for monitoring
 
 ### Architecture Diagram
+
                  +------------------+
                  |   Jenkins (CI)   |
                  +--------+---------+
@@ -37,10 +38,13 @@ This project demonstrates an end-to-end MLOps pipeline that deploys a machine le
               +-----------+-----------+
                           |
          +----------------+----------------+
-         |                                 |
-+------------------+         +-------------------------+
-|  Prometheus      |         |  Grafana Dashboard      |
-+------------------+         +-------------------------+
+         |                                 |  
+         v                                 v
+    +------------------+         +-------------------------+
+    | Prometheus      |          |  Grafana Dashboard      |
+    +------------------+         +-------------------------+
+
+
 
 
 
