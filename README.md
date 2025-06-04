@@ -45,9 +45,6 @@ This project demonstrates an end-to-end MLOps pipeline that deploys a machine le
     +------------------+         +-------------------------+
 
 
-
-
-
 ## API Usage
 
 - **Endpoint:** `/predict`
@@ -55,7 +52,13 @@ This project demonstrates an end-to-end MLOps pipeline that deploys a machine le
 - **Payload:**
 ```json
 {
-  "features": [5.1, 3.5, 1.4, 0.2]
+  "features": [6, 148, 72, 35, 0, 33.6, 0.627, 50] 
+}
+```
+- **Return Prediction to Client:**
+```json
+{
+  "prediction": ["setosa"]
 }
 ```
 
@@ -66,6 +69,7 @@ terraform init
 terraform plan
 terraform apply
 ```
+
 ## EKS Setup
 
 ```bash
