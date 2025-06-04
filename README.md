@@ -29,11 +29,22 @@ This project demonstrates an end-to-end MLOps pipeline that deploys a machine le
 }
 ```
 
-## Setup
+## server Setup
 
 ```bash
 terraform init
+terraform plan
 terraform apply
+```
+## EKS Setup
+
+```bash
 aws eks --region us-east-1 update-kubeconfig --name mlops-eks
 kubectl get nodes
+kubectl apply -f prometheus/prometheus-config.yaml
+kubectl apply -f prometheus/prometheus-deployment.yaml
+kubectl apply -f prometheus/prometheus-service.yaml
+kubectl apply -f k8s/grafana/grafana-config.yaml
+kubectl apply -f k8s/grafana/grafana-deployment.yaml
+kubectl apply -f k8s/grafana/grafana-service.yaml
 ```
