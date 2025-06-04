@@ -5,6 +5,11 @@ pipeline {
     DOCKER_IMAGE = 'dockerhub/ml-model'
   }
   stages {
+     stage('Checkout') {
+      steps {
+        git 'https://github.com/your-repo/ml-app'
+      }
+    }
     stage('Build') {
       steps {
         sh 'docker build -t $DOCKER_IMAGE .'
