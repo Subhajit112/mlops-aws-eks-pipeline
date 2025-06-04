@@ -1,1 +1,0 @@
-# mlops-aws-eks-pipeline
