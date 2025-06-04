@@ -1,1 +1,116 @@
-{}
+{
+  "dashboard": {
+    "id": null,
+    "uid": "ml-api-dashboard",
+    "title": "ML Model API Monitoring",
+    "tags": ["ml", "api", "kubernetes"],
+    "timezone": "browser",
+    "schemaVersion": 36,
+    "version": 1,
+    "refresh": "10s",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Request Rate",
+        "id": 1,
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "rate(http_requests_total[1m])",
+            "legendFormat": "{{handler}}",
+            "interval": "",
+            "refId": "A"
+          }
+        ],
+        "xaxis": {
+          "mode": "time"
+        },
+        "yaxes": [
+          {
+            "format": "ops",
+            "label": "requests/sec",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          },
+          {
+            "show": true
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Request Duration",
+        "id": 2,
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "rate(http_request_duration_seconds_sum[1m]) / rate(http_request_duration_seconds_count[1m])",
+            "legendFormat": "avg duration",
+            "refId": "B"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "s",
+            "label": "seconds",
+            "min": 0,
+            "show": true
+          },
+          {
+            "show": true
+          }
+        ],
+        "xaxis": {
+          "mode": "time"
+        }
+      },
+      {
+        "type": "graph",
+        "title": "CPU Usage (ml-api pods)",
+        "id": 3,
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "rate(container_cpu_usage_seconds_total{pod=~\"ml-model-api.*\"}[1m])",
+            "legendFormat": "{{pod}}",
+            "refId": "C"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "percent",
+            "min": 0,
+            "show": true
+          },
+          {
+            "show": true
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Memory Usage (ml-api pods)",
+        "id": 4,
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "container_memory_usage_bytes{pod=~\"ml-model-api.*\"}",
+            "legendFormat": "{{pod}}",
+            "refId": "D"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "bytes",
+            "min": 0,
+            "show": true
+          },
+          {
+            "show": true
+          }
+        ]
+      }
+    ]
+  }
+}
