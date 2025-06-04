@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: ml-api
-        image: yourdockerhub/ml-model:latest
+        image: dockerhub/ml-model:latest
         ports:
         - containerPort: 5000
