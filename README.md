@@ -34,5 +34,6 @@ This project demonstrates an end-to-end MLOps pipeline that deploys a machine le
 ```bash
 terraform init
 terraform apply
-kubectl apply -f k8s/
+aws eks --region us-east-1 update-kubeconfig --name mlops-eks
+kubectl get nodes
 ```
